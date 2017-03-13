@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.1">Jekyll</generator><link href="http://localhost:5656/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:5656/" rel="alternate" type="text/html" /><updated>2017-03-14T00:01:51+08:00</updated><id>http://localhost:5656/</id><title type="html">keep going</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">JADE 语法</title><link href="http://localhost:5656/jade/2017/03/13/jade-%E8%AF%AD%E6%B3%95.html" rel="alternate" type="text/html" title="JADE 语法" /><published>2017-03-13T23:49:19+08:00</published><updated>2017-03-13T23:49:19+08:00</updated><id>http://localhost:5656/jade/2017/03/13/jade-%E8%AF%AD%E6%B3%95</id><content type="html" xml:base="http://localhost:5656/jade/2017/03/13/jade-%E8%AF%AD%E6%B3%95.html">&lt;h1 id=&quot;jade-简介&quot;&gt;JADE 简介&lt;/h1&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;h2 id=&quot;是什么&quot;&gt;是什么&lt;/h2&gt;
+&lt;p&gt;JADE 是一门 &lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt; 的模版语言&lt;/p&gt;
+&lt;h2 id=&quot;什么样&quot;&gt;什么样&lt;/h2&gt;
+&lt;p&gt;看看下面两段代码，直接感受一下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;nx&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Jade - node template engine&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Get on it!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;
+        Jade is a terse and simple
+        templating language with a
+        strong focus on performance
+        and powerful features.
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果用 JADE 写，上面的代码可以写成这样：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;doctype html
+html(lang=&quot;en&quot;)
+  head
+    title= pageTitle
+    script(type='text/javascript').
+      if (foo) {
+         bar(1 + 5)
+      }
+  body
+    h1 Jade - node template engine
+    #container.col
+      if youAreUsingJade
+        p You are amazing
+      else
+        p Get on it!
+      p.
+        Jade is a terse and simple
+        templating language with a
+        strong focus on performance
+        and powerful features.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;比较以上两片代码，你会发觉后面一段明显简洁漂亮了许多，往细看，你能发现，相比原生html，jade的特点有：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;标签不用写尖角号了，直接写标签名就可以了。如body标签，不再是&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;&lt;/code&gt;而是&lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt;,简洁明了。&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;标签的层级关系通过缩进表示，如&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&amp;lt;p&amp;gt;...&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&lt;/code&gt;用jade就是：&lt;/p&gt;
+
+    &lt;p&gt;body
+   p&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;不写尖角号，那标签里的内容放哪。通过观察，就可发可以用以下方式实现：&lt;/li&gt;
+  &lt;li&gt;便签名后打空格，在用一行继续写。如上所示&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;h1&amp;gt;Jade - node template engine&amp;lt;/h1&amp;gt;&lt;/code&gt;，可写为&lt;code class=&quot;highlighter-rouge&quot;&gt;h1 Jade - node template engine&lt;/code&gt;。如果文字太多，一行放不下怎么办？看下一点。&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;便签后打点&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;,换一行继续写。如:&lt;/p&gt;
+
+    &lt;p&gt;p.
+      Jade is a terse and simplete mplating language with a strong focus on performanceand powerful features.
+这种很适合添加长段文字，文字过长就另起一行，与标签分开显示，易于阅读。可能有些人还会问，如果一个标签内容里既有文字，又有子标签，怎么办？还是往下看。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;前面的问题，实际就是怎么用jade表示下面这段代码：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt; Jade is a &amp;lt;strong&amp;gt;terse and simplete mplating &amp;lt;/strong&amp;gt; language with a strong focus on performanceand powerful features.&amp;lt;/p&amp;gt; 还是先上代码
+
+p
+  | Jade is a
+  strong terse and simplete mplating
+  | language with a strong focus on performanceand powerful features. 观察后又可以发现，还可以另起一行，空格缩进，然后把内容写在`|`后面，其他子便签写法跟之前一样。
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Tips:&lt;/strong&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;JADE&lt;/code&gt;通过缩进表示层级关系,缩进可以是空格，也可以是tap。但不能混用。
+写jade强烈建议能显式表现空格和tap的编辑器，能大大提高debug的效率。如sublime，选中代码，就是看到你用的是哪种锁进，&lt;code class=&quot;highlighter-rouge&quot;&gt;...&lt;/code&gt;表示你用的是空格，&lt;code class=&quot;highlighter-rouge&quot;&gt;---&lt;/code&gt;表示你用的是tap。而且sublime还可以很方便地转化这两种缩进。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;怎么用&quot;&gt;怎么用&lt;/h2&gt;
+&lt;p&gt;上一节从大处讲了JADE的简洁特点和缩进方式，这节从小的地方说说她的具体用法 —— 语法。&lt;/p&gt;
+
+&lt;p&gt;根据语法功能的使用频率，分为基础，中级，高级三小段&lt;/p&gt;
+
+&lt;h3 id=&quot;基础&quot;&gt;基础&lt;/h3&gt;
+
+&lt;p&gt;这一节介绍了…&lt;/p&gt;
+
+&lt;h4 id=&quot;注释-comments&quot;&gt;注释 (comments)&lt;/h4&gt;
+
+&lt;h5 id=&quot;行注释&quot;&gt;行注释&lt;/h5&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JADE&lt;/code&gt; 的行注释语法与&lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;的是一样的, 即行首加&lt;code class=&quot;highlighter-rouge&quot;&gt;//&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// just some paragraphs
+p foo
+p bar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转成&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;为&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!-- just some paragraphs--&amp;gt;
+&amp;lt;p&amp;gt;foo&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;bar&amp;lt;/p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JADE&lt;/code&gt;也支持&lt;code class=&quot;highlighter-rouge&quot;&gt;unbuffered comments&lt;/code&gt;(编译后不出现在&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;中), 在双斜线后加个连字符即可： &lt;code class=&quot;highlighter-rouge&quot;&gt;//-&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- will not output within markup
+p foo
+p bar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转成&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;为&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;foo&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;bar&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;块注释&quot;&gt;块注释&lt;/h5&gt;
+&lt;p&gt;要添加块注释，在内容前添加&lt;code class=&quot;highlighter-rouge&quot;&gt;//&lt;/code&gt;即可：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;body
+  //
+    As much text as you want
+    can go here.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转成&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;为&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;body&amp;gt;
+  &amp;lt;!--
+  As much text as you want
+  can go here.
+  --&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;条件注释&quot;&gt;条件注释&lt;/h5&gt;
+&lt;p&gt;这一点上，跟&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;的条件注释，是一样的：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if IE 8]&amp;gt;
+&amp;lt;html lang=&quot;en&quot; class=&quot;lt-ie9&quot;&amp;gt;
+&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if gt IE 8]&amp;gt;&amp;lt;!--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转成&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;为&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if IE 8]&amp;gt;
+&amp;lt;html lang=&quot;en&quot; class=&quot;lt-ie9&quot;&amp;gt;
+&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if gt IE 8]&amp;gt;&amp;lt;!--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;文档类型doctype&quot;&gt;文档类型（doctype）&lt;/h4&gt;
+&lt;p&gt;现在常用的&lt;code class=&quot;highlighter-rouge&quot;&gt;html5&lt;/code&gt;文档类型是&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;doctype html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;即&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;还有其他的一些文档类型，可以移步官网。&lt;/p&gt;
+
+&lt;h4 id=&quot;标签-tags&quot;&gt;标签 (tags)&lt;/h4&gt;
+&lt;p&gt;JADE标签及标签嵌套在上文提过，这里不赘述，只介绍下行内嵌套。如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a: img
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a&amp;gt;&amp;lt;img/&amp;gt;&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;注意&lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt;和另一个标签之间的空格。&lt;/p&gt;
+
+&lt;h4 id=&quot;纯文本--plain-text-&quot;&gt;纯文本 ( plain text )&lt;/h4&gt;
+&lt;p&gt;JADE中写文本方法上文已经提过，以下只是小节一下。赶时间可以跳过。&lt;/p&gt;
+&lt;h5 id=&quot;管道式--piped-text-&quot;&gt;管道式 ( piped Text )&lt;/h5&gt;
+&lt;p&gt;即上文提到的&lt;code class=&quot;highlighter-rouge&quot;&gt;| + 空格&lt;/code&gt;的形式&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;| Plain text can include &amp;lt;strong&amp;gt;html&amp;lt;/strong&amp;gt;
+p
+  | It must always be on its own line
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转为&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Plain text can include &amp;lt;strong&amp;gt;html&amp;lt;/strong&amp;gt;
+&amp;lt;p&amp;gt;It must always be on its own line&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5 id=&quot;內联式--inline-in-a-tag-&quot;&gt;內联式 ( Inline in a Tag )&lt;/h5&gt;
+&lt;p&gt;即在&lt;code class=&quot;highlighter-rouge&quot;&gt;标签后加空格&lt;/code&gt;，再直接输入文本&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p Plain text can include &amp;lt;strong&amp;gt;html&amp;lt;/strong&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;p&amp;gt;Plain text can include &amp;lt;strong&amp;gt;html&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5 id=&quot;块方式--block-in-a-tag-&quot;&gt;块方式 ( Block in a Tag )&lt;/h5&gt;
+&lt;p&gt;在写脚本或样式的时候，你可能需要在标签内写入大量文本，这时候，可以在标签后&lt;code class=&quot;highlighter-rouge&quot;&gt;加点&lt;/code&gt;的方法&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;script.
+  if (usingJade)
+    console.log('you are awesome')
+  else
+    console.log('use jade')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+  if (usingJade)
+    console.log('you are awesome')
+  else
+    console.log('use jade')
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;属性--attributes-&quot;&gt;属性 ( attributes )&lt;/h4&gt;
+&lt;p&gt;JADE 里元素的属性和html里的很类似，从形式上看， html便签的属性写在尖角号里，而JADE则是写在括号里&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a(href='google.com') Google
+a(class='button', href='google.com') Google
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a href=&quot;google.com&quot;&amp;gt;Google&amp;lt;/a&amp;gt;&amp;lt;a href=&quot;google.com&quot; class=&quot;button&quot;&amp;gt;Google&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;属性较多时，还可以分行书写&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input(
+  type='checkbox'
+  name='agreement'
+  checked
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;input type=&quot;checkbox&quot; name=&quot;agreement&quot; checked=&quot;checked&quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;另外，class可简写为&lt;code class=&quot;highlighter-rouge&quot;&gt;.classname&lt;/code&gt;,id可简写为&lt;code class=&quot;highlighter-rouge&quot;&gt;#idname&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#wrap
+  p#main-link
+    a.btn
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;wrap&quot;&amp;gt;
+  &amp;lt;p id=&quot;main-link&quot;&amp;gt;&amp;lt;a class=&quot;btn&quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;从上还可发现&lt;code class=&quot;highlighter-rouge&quot;&gt;#wrap&lt;/code&gt;被解析成了&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div id=&quot;wrap&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;。&lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt;作为如此常用的标签，JADE中可以默认可以省去不写标签名,&lt;code class=&quot;highlighter-rouge&quot;&gt;#wrap&lt;/code&gt;即代表&lt;code class=&quot;highlighter-rouge&quot;&gt;div#wrap&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;高级篇&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;虽然JADE里的属性值形式跟html差不多，但实际上，JADE的属性，就是正常的javaScript。基于此，JADE里的属性值，还有一些更高级的功能。&lt;/p&gt;
+
+&lt;p&gt;布尔属性值 ( Boolean Attributes )
+属性值支持布尔值，当没有指定时，默认就是为真&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input(type='checkbox', checked)
+input(type='checkbox', checked=true)
+input(type='checkbox', checked=false)
+input(type='checkbox', checked=true.toString())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;/&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;/&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot;/&amp;gt;
+&amp;lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果文档类型是&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt;，jade可以将属性值编译成所有浏览器都能理解的形式&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;doctype html
+input(type='checkbox', checked)
+input(type='checkbox', checked=true)
+input(type='checkbox', checked=false)
+input(type='checkbox', checked=true &amp;amp;&amp;amp; 'checked')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checked&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checked&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checked=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checked&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;同样，属性也支持三目形式&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var authenticated = true
+body(class=authenticated ? 'authed' : 'anon')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;body class=&quot;authed&quot;&amp;gt;&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;而且，class不仅可以是字符串，更可以是对象&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var classes = ['foo', 'bar', 'baz']
+a(class=classes)
+//- the class attribute may also be repeated to merge arrays
+a.bing(class=classes class=['bing'])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a class=&quot;foo bar baz&quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;a class=&quot;bing foo bar baz bing&quot;&amp;gt;&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;class也可以是通过映射真假的对象来确定，这在条件判断的场景下很有用。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var currentUrl = '/about'
+a(class={active: currentUrl === '/'} href='/') Home
+a(class={active: currentUrl === '/about'} href='/about') About
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a href=&quot;/&quot;&amp;gt;Home&amp;lt;/a&amp;gt;&amp;lt;a href=&quot;/about&quot; class=&quot;active&quot;&amp;gt;About&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;同样style属性也可以是对象&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a(style={color: 'red', background: 'green'})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a style=&quot;color:red;background:green&quot;&amp;gt;&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;为了防止xss攻击，JADE里所有的属性值默认都是编码过的。如果你需要一些特殊字符，你可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;!=&lt;/code&gt;而不是&lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;div(escaped=&quot;&amp;lt;code&amp;gt;&quot;)
+div(unescaped!=&quot;&amp;lt;code&amp;gt;&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div escaped=&quot;&amp;amp;lt;code&amp;amp;gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div unescaped=&quot;&amp;lt;code&amp;gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 未编码的代码隐藏着风险，使用前要确保里面没有&lt;code class=&quot;highlighter-rouge&quot;&gt;xss&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;另外，&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;attributes&lt;/code&gt;也可以将一个对象添加到元素上将之作为属性&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;div#foo(data-bar=&quot;foo&quot;)&amp;amp;attributes({'data-foo': 'bar'})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;foo&quot; data-bar=&quot;foo&quot; data-foo=&quot;bar&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这个对象不仅可以是字面量，也可以是表示对象的变量。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var attributes = {'data-foo': 'bar'};
+div#foo(data-bar=&quot;foo&quot;)&amp;amp;attributes(attributes)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;foo&quot; data-bar=&quot;foo&quot; data-foo=&quot;bar&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; JADE并没有对&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;attributes&lt;/code&gt;语法引入的对象进行编码，所以，用到它时，得确保数据安全，防止&lt;code class=&quot;highlighter-rouge&quot;&gt;xss&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;中&quot;&gt;中&lt;/h3&gt;
+
+&lt;p&gt;这一节主要关于模版的引用&lt;/p&gt;
+
+&lt;h4 id=&quot;extends&quot;&gt;extends&lt;/h4&gt;
+&lt;p&gt;extends 能够让当前模版继承其他的模版，而且可以覆盖其他模版预设的属性。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- layout.jade
+doctype html
+html
+  head
+    block title
+      title Default title
+  body
+    block content
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;index 模版&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- index.jade
+extends ./layout.jade
+
+block title
+  title Article Title
+
+block content
+  h1 My Article
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;转&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Article Title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;My Article&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;inheritance&quot;&gt;inheritance&lt;/h4&gt;
+&lt;p&gt;上一节介绍JADE模版间的继承时介绍了&lt;code class=&quot;highlighter-rouge&quot;&gt;extend&lt;/code&gt;，这节介绍另一个方法&lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;
+假设有&lt;code class=&quot;highlighter-rouge&quot;&gt;layout.jade&lt;/code&gt;模版如下&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
+  head
+    title My Site
+    block scripts
+      script(src='/jquery.js')
+  body
+    block content
+    block foot
+      #footer
+        p some footer content
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后&lt;code class=&quot;highlighter-rouge&quot;&gt;page-a.jade&lt;/code&gt;引用了它&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extends ./layout.jade
+
+block scripts
+  script(src='/zepto.js')
+  script(src='/pets.js')
+
+block content
+  h1 page title
+  p page content
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;My Site&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/zepto.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/pets.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;page title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;page content&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;footer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;some footer content&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;通过对比可以发现&lt;code class=&quot;highlighter-rouge&quot;&gt;block [name]&lt;/code&gt;的特点有&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;插入内容，如&lt;code class=&quot;highlighter-rouge&quot;&gt;block content&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;会覆盖原来的内容, 如&lt;code class=&quot;highlighter-rouge&quot;&gt;block scripts&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;能预设默认值， 如&lt;code class=&quot;highlighter-rouge&quot;&gt;block fooot&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;代码前置和后置&lt;/strong&gt;
+如上的&lt;code class=&quot;highlighter-rouge&quot;&gt;block scripts&lt;/code&gt;，在引入模版的block中插入值，jade会覆盖父级模版原有的内容。这是JADE的默认行为，当然，也可以通过&lt;code class=&quot;highlighter-rouge&quot;&gt;block append [name]&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;block prepend [name]&lt;/code&gt;在父级模版后或前插入代码块(也可简写成&lt;code class=&quot;highlighter-rouge&quot;&gt;append [name]&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;prepend [name]&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;有&lt;code class=&quot;highlighter-rouge&quot;&gt;layout.jade&lt;/code&gt;如下&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html
+  head
+    block head
+      script(src='/vendor/jquery.js')
+      script(src='/vendor/caustic.js')
+  body
+    block content
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;有&lt;code class=&quot;highlighter-rouge&quot;&gt;page-b.jade&lt;/code&gt;如下&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extends layout
+append head
+  script(src='/vendor/three.js')
+  script(src='/game.js')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转后&lt;code class=&quot;highlighter-rouge&quot;&gt;page-b.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/vendor/jquery.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/vendor/caustic.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/vendor/three.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/game.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;有&lt;code class=&quot;highlighter-rouge&quot;&gt;page-c.jade&lt;/code&gt;如下&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extends layout
+prepend head
+  script(src='/vendor/three.js')
+  script(src='/game.js')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;转后&lt;code class=&quot;highlighter-rouge&quot;&gt;page-c.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/vendor/three.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/game.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/vendor/jquery.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/vendor/caustic.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;插入模版includes&quot;&gt;插入模版(includes)&lt;/h4&gt;
+&lt;p&gt;可以将其它模版插入当前模版中&lt;/p&gt;
+
+&lt;p&gt;head.jade&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- includes/head.jade
+head
+  title My Site
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/app.js')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;foot.jade&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- includes/foot.jade
+#footer
+  p Copyright (c) foobar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;index.jade&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- index.jade
+doctype html
+html
+  include ./includes/head.jade
+  body
+    h1 My Site
+    p Welcome to my super lame site.
+    include ./includes/foot.jade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;转&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;My Site&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/javascripts/jquery.js'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/javascripts/app.js'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;My Site&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Welcome to my super lame site.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;footer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Copyright (c) foobar&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;include 也可以用来插入纯文本&lt;/p&gt;
+
+&lt;p&gt;有一下代码块&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/* style.css */
+h1 { color: red; }
+
+// script.js
+console.log('You are awesome');
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将它们插入&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- index.jade
+doctype html
+html
+  head
+    style
+      include style.css
+  body
+    h1 My Site
+    p Welcome to my super lame site.
+    script
+      include script.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;转&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;/* style.css */&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;My Site&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Welcome to my super lame site.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// script.js&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'You are awesome'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;include 还可以用来插入 &lt;code class=&quot;highlighter-rouge&quot;&gt;Filtered Text&lt;/code&gt;(后面解释)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+// markdown 文档
+# article.md
+This is an article written in markdown.
+
+
+//- index.jade
+doctype html
+html
+  head
+    title An Article
+  body
+    include:markdown article.md
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;转&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;An Article&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;article.md&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;This is an article written in markdown.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;混合-mixins&quot;&gt;混合 (mixins)&lt;/h4&gt;
+&lt;p&gt;Mixins 能 JADE 有能力创建可复用的代码块&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//- Declaration
+mixin list
+  ul
+    li foo
+    li bar
+    li baz
+//- Use
++list
++list
+
+// 转
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;foo&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;bar&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;baz&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;foo&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;bar&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;baz&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;而且可以接受参数&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mixin pet(name)
+  li.pet= name
+ul
+  +pet('cat')
+  +pet('dog')
+  +pet('pig')
+
+//转
+&amp;lt;ul&amp;gt;
+  &amp;lt;li class=&quot;pet&quot;&amp;gt;cat&amp;lt;/li&amp;gt;
+  &amp;lt;li class=&quot;pet&quot;&amp;gt;dog&amp;lt;/li&amp;gt;
+  &amp;lt;li class=&quot;pet&quot;&amp;gt;pig&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Mixin 还可以将一段 JADE 代码块作为其内容&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mixin article(title)
+  .article
+    .article-wrapper
+      h1= title
+      if block
+        block
+      else
+        p No content provided
+
++article('Hello world')
+
++article('Hello world')
+  p This is my
+  p Amazing article
+
+//转
+&amp;lt;div class=&quot;article&quot;&amp;gt;
+  &amp;lt;div class=&quot;article-wrapper&quot;&amp;gt;
+    &amp;lt;h1&amp;gt;Hello world&amp;lt;/h1&amp;gt;
+    &amp;lt;p&amp;gt;No content provided&amp;lt;/p&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&quot;article&quot;&amp;gt;
+  &amp;lt;div class=&quot;article-wrapper&quot;&amp;gt;
+    &amp;lt;h1&amp;gt;Hello world&amp;lt;/h1&amp;gt;
+    &amp;lt;p&amp;gt;This is my&amp;lt;/p&amp;gt;
+    &amp;lt;p&amp;gt;Amazing article&amp;lt;/p&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Mixins 隐式地从 attributes 中获取参数&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mixin link(href, name)
+  //- attributes == {class: &quot;btn&quot;}
+  a(class!=attributes.class, href=href)= name
+
++link('/foo', 'foo')(class=&quot;btn&quot;)
+
+//转
+&amp;lt;a href=&quot;/foo&quot; class=&quot;btn&quot;&amp;gt;foo&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;attributes&lt;/code&gt;的值已经编码过了，所以最好用&lt;code class=&quot;highlighter-rouge&quot;&gt;!=&lt;/code&gt;而不是&lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;避免二次编码（关于&lt;code class=&quot;highlighter-rouge&quot;&gt; unescaped attributes&lt;/code&gt;可以查看&lt;code class=&quot;highlighter-rouge&quot;&gt;attributes&lt;/code&gt;一节)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;mixin里调用参数还可以直接用&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;attributes&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mixin link(href, name)
+  a(href=href)&amp;amp;attributes(attributes)= name
+
++link('/foo', 'foo')(class=&quot;btn&quot;)
+
+// 转
+&amp;lt;a href=&quot;/foo&quot; class=&quot;btn&quot;&amp;gt;foo&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;和ES6的分离参数一样，JADE也有这一功能，称为&lt;code class=&quot;highlighter-rouge&quot;&gt;Rest Arguments&lt;/code&gt;。在不知道参数的个数时，可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;rest arguments&quot;&lt;/code&gt;语法格式。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mixin list(id, ...items)
+  ul(id=id)
+    each item in items
+      li= item
+
++list('my-list', 1, 2, 3, 4)
+
+// 转
+&amp;lt;ul id=&quot;my-list&quot;&amp;gt;
+  &amp;lt;li&amp;gt;1&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;2&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;3&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;4&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;高&quot;&gt;高&lt;/h3&gt;
+&lt;p&gt;介绍高级点的用法&lt;/p&gt;
+
+&lt;h4 id=&quot;code&quot;&gt;code&lt;/h4&gt;
+&lt;p&gt;JADE 支持在模版里写javaScript。共有三种格式
+其一，Unbuffered Code。这种形式的代码以&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;开头，代码不会出现在编译后的模版中&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- for (var x = 0; x &amp;lt; 3; x++)
+  li item
+
+// 转
+&amp;lt;li&amp;gt;item&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;item&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;item&amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;它也支持直接写代码块&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-
+  list = [&quot;Uno&quot;, &quot;Dos&quot;, &quot;Tres&quot;,
+          &quot;Cuatro&quot;, &quot;Cinco&quot;, &quot;Seis&quot;]
+each item in list
+  li= item
+
+// 转
+&amp;lt;li&amp;gt;Uno&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Dos&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Tres&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Cuatro&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Cinco&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Seis&amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; 写入代码块时，&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;后不能有空格&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;JADE也支持以&lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;开头的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Buffered Code&lt;/code&gt;。如果是 javaScript表达式，输出的就是表达式的值。为了安全，模版优先输出的是HTML&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p
+  = 'This code is &amp;lt;escaped&amp;gt;!'
+
+=&amp;gt;
+&amp;lt;p&amp;gt;This code is &amp;amp;lt;escaped&amp;amp;gt;!&amp;lt;/p&amp;gt;
+
+// 写在行间也是可以的
+p= 'This code is' + ' &amp;lt;escaped&amp;gt;!'
+
+=&amp;gt;
+&amp;lt;p&amp;gt;This code is &amp;amp;lt;escaped&amp;amp;gt;!&amp;lt;/p&amp;gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以&lt;code class=&quot;highlighter-rouge&quot;&gt;!=&lt;/code&gt;输出的是未编码的代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p
+  != 'This code is &amp;lt;strong&amp;gt;not&amp;lt;/strong&amp;gt; escaped!'
+
+=&amp;gt;
+&amp;lt;p&amp;gt;This code is &amp;lt;strong&amp;gt;not&amp;lt;/strong&amp;gt; escaped!
+&amp;lt;/p&amp;gt;
+
+// 它也是支持行间的
+p!= 'This code is' + ' &amp;lt;strong&amp;gt;not&amp;lt;/strong&amp;gt;
+
+=&amp;gt;
+&amp;lt;p&amp;gt;This code is &amp;lt;strong&amp;gt;not&amp;lt;/strong&amp;gt; escaped!&amp;lt;/p&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;警告&lt;/strong&gt; 未编码的代码隐藏着风险，在写入之前应该确保代码的安全性。警惕&lt;code class=&quot;highlighter-rouge&quot;&gt;xxs&lt;/code&gt;攻击。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;interpolation&quot;&gt;interpolation&lt;/h4&gt;
+&lt;p&gt;JADE 通过&lt;code class=&quot;highlighter-rouge&quot;&gt;#{}&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;!{}&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;#[]&lt;/code&gt;向文本中插入内容
+&lt;strong&gt;#{} :&lt;/strong&gt;插入编码后的字符串
+这种格式支持 产生字符串的javaScript字符串和表达式&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var title = &quot;On Dogs: Man's Best Friend&quot;;
+- var author = &quot;enlore&quot;;
+- var theGreat = &quot;&amp;lt;span&amp;gt;escape!&amp;lt;/span&amp;gt;&quot;;
+
+h1= title
+p Written with love by #{author}
+p This will be safe: #{theGreat}
+
+=&amp;gt;
+&amp;lt;h1&amp;gt;On Dogs: Man's Best Friend&amp;lt;/h1&amp;gt;
+&amp;lt;p&amp;gt;Written with love by enlore&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;This will be safe: &amp;amp;lt;span&amp;amp;gt;escape!&amp;amp;lt;/span&amp;amp;gt;&amp;lt;/p&amp;gt;
+
+// 表达式
+- var msg = &quot;not my inside voice&quot;;
+p This is #{msg.toUpperCase()}
+
+=&amp;gt;
+&amp;lt;p&amp;gt;This is NOT MY INSIDE VOICE&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;**!{}: **插入未编码的字符串，如&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var riskyBusiness = &quot;&amp;lt;em&amp;gt;Some of the girls are wearing my mother's clothing.&amp;lt;/em&amp;gt;&quot;;
+.quote
+  p Joel: !{riskyBusiness}
+
+=&amp;gt;
+&amp;lt;div class=&quot;quote&quot;&amp;gt;
+  &amp;lt;p&amp;gt;Joel: &amp;lt;em&amp;gt;Some of the girls are wearing my mother's clothing.&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;警告：&lt;/strong&gt;未编码的代码隐藏着风险，在写入之前应该确保代码的安全性。警惕&lt;code class=&quot;highlighter-rouge&quot;&gt;xxs&lt;/code&gt;攻击。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;**#[]: **插入标签&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;p.
+  If you take a look at this page's source #[a(target=&quot;_blank&quot;, href=&quot;https://github.com/jadejs/jade/blob/master/docs/views/reference/interpolation.jade&quot;) on GitHub],
+  you'll see several places where the tag interpolation operator is
+  used, like so.
+
+=&amp;gt;
+&amp;lt;p&amp;gt;If you take a look at this page's source &amp;lt;a target=&quot;_blank&quot; href=&quot;https://github.com/jadejs/jade/blob/master/docs/views/reference/interpolation.jade&quot;&amp;gt;on GitHub&amp;lt;/a&amp;gt;,
+  you'll see several places where the tag interpolation operator is
+  used, like so.
+&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;当然在JADE文本中直接插入html标签也是可以的。但是，这么做的话，学JADE的意义在哪呢？&lt;/p&gt;
+
+&lt;h4 id=&quot;conditionals&quot;&gt;conditionals&lt;/h4&gt;
+&lt;p&gt;JADE 本身支持条件条件判断，所以在写&lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;else if&lt;/code&gt; 、和&lt;code class=&quot;highlighter-rouge&quot;&gt;else &lt;/code&gt;这些javeScript的条件判断语句是，可以省略&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var user = { description: 'foo bar baz' }
+- var authorised = false
+#user
+  if user.description
+    h2 Description
+    p.description= user.description
+  else if authorised
+    h2 Description
+    p.description.
+      User has no description,
+      why not add one...
+  else
+    h1 Description
+    p.description User has no description
+=&amp;gt;
+&amp;lt;div id=&quot;user&quot;&amp;gt;
+  &amp;lt;h2&amp;gt;Description&amp;lt;/h2&amp;gt;
+  &amp;lt;p class=&quot;description&quot;&amp;gt;foo bar baz&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;JADE 也支持 &lt;code class=&quot;highlighter-rouge&quot;&gt;unless&lt;/code&gt;语句，所以下面两段代码，效果是一样的&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unless user.isAnonymous
+  p You're logged in as #{user.name}
+
+// 也可以写成
+if !user.isAnonymous
+  p You're logged in as #{user.name}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;case&quot;&gt;case&lt;/h4&gt;
+&lt;p&gt;JADE的case语句实际上是javaScript语句的缩写形式，格式如下：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var friends = 10
+case friends
+  when 0
+    p you have no friends
+  when 1
+    p you have a friend
+  default
+    p you have #{friends} friends
+
+=&amp;gt;
+&amp;lt;p&amp;gt;you have 10 friends&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;它也支持&lt;code class=&quot;highlighter-rouge&quot;&gt;fall through&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var friends = 0
+case friends
+  when 0
+  when 1
+    p you have very few friends
+  default
+    p you have #{friends} friends
+=&amp;gt;
+&amp;lt;p&amp;gt;you have very few friends&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;当然，也支持代码块&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var friends = 1
+case friends
+  when 0: p you have no friends
+  when 1: p you have a friend
+  default: p you have #{friends} friends
+
+=&amp;gt;
+&amp;lt;p&amp;gt;you have a friend&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;iteration&quot;&gt;iteration&lt;/h4&gt;
+&lt;p&gt;JADE支持两种循环&lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;while&lt;/code&gt;
+&lt;strong&gt;each&lt;/strong&gt;
+有了&lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt; 循环一个数组或对象是很容易的:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ul
+  each val in [1, 2, 3, 4, 5]
+    li= val
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;它还支持获取数组的下标、对象的键名：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ul
+  each val, index in ['zero', 'one', 'two']
+    li= index + ': ' + val
+=&amp;gt;
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;0: zero&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;1: one&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;2: two&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+
+ul
+  each val, index in {1:'one',2:'two',3:'three'}
+    li= index + ': ' + val
+=&amp;gt;
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;1: one&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;2: two&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;3: three&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;数组和对象都是纯的javaScript，所以他们也可以被变量、函数或者任何可以产生数组或对象的javaScript表达式&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var values = [];
+ul
+  each val in values.length ? values : ['There are no values']
+    li= val
+=&amp;gt;
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;There are no values&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;上面的关键字&lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt;也可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt;代替&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;while&lt;/strong&gt;
+用while也是可以创建一个循环的&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- var n = 0
+ul
+  while n &amp;lt; 4
+    li= n++
+
+=&amp;gt;
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;0&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;1&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;2&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;3&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;filters&quot;&gt;filters&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Filters&lt;/code&gt;使得在jade中使用其它语言成为可能。如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:markdown
+  # Markdown
+
+  I often like including markdown documents.
+script
+  :coffee-script
+    console.log 'This is coffee script'
+
+=&amp;gt;
+&amp;lt;h1&amp;gt;Markdown&amp;lt;/h1&amp;gt;
+&amp;lt;p&amp;gt;I often like including markdown documents.&amp;lt;/p&amp;gt;
+&amp;lt;script&amp;gt;console.log('This is coffee script')&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面的&lt;code class=&quot;highlighter-rouge&quot;&gt;:markdown&lt;/code&gt;就是一个JADE的&lt;code class=&quot;highlighter-rouge&quot;&gt;filter&lt;/code&gt;。所有的&lt;code class=&quot;highlighter-rouge&quot;&gt;JSTransformers&lt;/code&gt;都可以拿来作为JADE的&lt;code class=&quot;highlighter-rouge&quot;&gt;filter&lt;/code&gt;。比较流行的&lt;code class=&quot;highlighter-rouge&quot;&gt;filter&lt;/code&gt;有&lt;code class=&quot;highlighter-rouge&quot;&gt;:coffee-script&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt; :babel&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;:uglify-js&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;:less&lt;/code&gt;, 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;:markdown-it&lt;/code&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;提示&lt;/strong&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;filter&lt;/code&gt;都是编译进行时的，这一特点使得它们编译得很快，同时也使得它们不支持动态输入。内置的&lt;code class=&quot;highlighter-rouge&quot;&gt;filter&lt;/code&gt;在浏览器里运行并不良好，最好将它们放在服务端。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;personal-views&quot;&gt;personal views&lt;/h2&gt;
+
+&lt;p&gt;Doctype Option
+Custom Doctypes&lt;/p&gt;</content><author><name></name></author><summary type="html">JADE 简介</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:5656/jekyll/update/2017/03/05/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-03-05T10:45:19+08:00</published><updated>2017-03-05T10:45:19+08:00</updated><id>http://localhost:5656/jekyll/update/2017/03/05/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:5656/jekyll/update/2017/03/05/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
